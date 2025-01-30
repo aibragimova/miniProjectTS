@@ -1,10 +1,30 @@
-// import {} from './interface.js';
+// import { Product, User } from "./interface";
+
+class Product implements Product {
+    constructor(id: number, name: string, price: number, description: string) {
+
+    }
+
+}
 
 
-// class ProductCatalog {
-//     private products: Product[] =[];
-// }
+class User implements User {
+    id: number;
+    name: string;
+    email: string;
+    shoppingCart: Product[] = [];
 
-// addProduct(product: Product): void{
-//     this.products.push(product);
-// }
+    constructor(id: number, name: string, email: string) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    addToCard(product:Product): void {
+        this.shoppingCart.push(product);
+    }
+
+    removeItem(productId:number): void {
+        this.shoppingCart = this.shoppingCart.filter(product => productId !== productId);
+    }
+}
