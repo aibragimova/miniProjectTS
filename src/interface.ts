@@ -5,16 +5,17 @@ export interface Product {
     description: string;
 }
 
-export interface User {
+export interface IUser {
     id: number;
     name: string;
     email:string;
-    shopingCart: CartItem;
+    shopingCart: ShopingCard;
 }
 
 export interface CartItem {
     product: Product
     quantity: number;
+    
 }
 
 export interface Order {
@@ -22,6 +23,11 @@ export interface Order {
     items: CartItem[];
     total: number;
     status: 'pending' | 'completed' | 'cancelled';
+}
+
+export interface ShopingCard {
+    items: CartItem[];
+
 }
 
  interface EComerceOperations {
@@ -32,4 +38,10 @@ export interface Order {
      placeOrder(userId:number): Order;
  }
 
- 
+const newOrder : Order = {
+    id: 23,
+    items: [],
+    total: 60,
+    status: 'pending',
+
+};
